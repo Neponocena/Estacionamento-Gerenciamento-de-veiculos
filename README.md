@@ -1,0 +1,1 @@
+Aplicação de console desenvolvida em C# (.NET) com foco no gerenciamento básico de um estacionamento. O sistema permite cadastrar veículos, listar veículos cadastrados e remover veículos, realizando o cálculo do valor a pagar com base no tempo de permanência.
