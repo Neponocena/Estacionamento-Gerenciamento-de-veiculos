@@ -90,7 +90,15 @@ namespace Estacionamento
             Arquivo.Salvar(veiculos);
 
             Console.WriteLine("Digite a quantidade de horas estacionado:");
-            int horas = int.Parse(Console.ReadLine());
+            int horas;
+            if(int.TryParse(Console.ReadLine(), out horas))
+            {
+                Console.WriteLine("Digite um número valído");
+                Console.ReadKey();
+                return;
+            }
+
+            
 
             Console.WriteLine($"{removido} removido");
             Console.WriteLine($"Valor total: R${horas * 5}");
