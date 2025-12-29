@@ -36,6 +36,7 @@ Console.WriteLine("-------------------------------------------------------------
             Console.WriteLine();
             Console.WriteLine("4 - HISTORICO DE OPERAÇÕES");
             Console.WriteLine();
+            Console.WriteLine("0 - FECHAR APLICAÇÃO");
             Console.WriteLine("---------------------");
             
             int opcao;
@@ -53,7 +54,7 @@ Console.WriteLine("-------------------------------------------------------------
                 case 2: Cadastrar.Listar();break;
                 case 3: Cadastrar.Remover();break;
                 case 4: Cadastrar.HistoricoOperacoes();break;
-                default: Menu.Mostrar();break;
+                default: System.Environment.Exit(0);break;
             }
             }
             catch
