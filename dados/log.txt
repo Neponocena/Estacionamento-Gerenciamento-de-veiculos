@@ -1,0 +1,6 @@
+29/12/2025 13:30:56 - O veículo 0 com a placa 0 foi cadastrado com êxito!
+29/12/2025 13:40:15 - 0 - 0 removido
+29/12/2025 14:26:58 - O veículo Corsa com a placa EBA-3501 foi cadastrado com êxito!
+29/12/2025 14:27:22 - O veículo CIVIC com a placa EBA-3502 foi cadastrado com êxito!
+29/12/2025 14:28:40 - Corsa - EBA-3501 removido
+29/12/2025 14:28:53 - Corsa - EBA-3501 removido

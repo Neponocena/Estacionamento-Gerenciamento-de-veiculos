@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Estacionamento
 {
     public static class Cadastrar
@@ -11,13 +12,19 @@ namespace Estacionamento
         {
             Console.Clear();
 
-            Console.Write("Informe o nome do veículo:");
+            Console.Write("Informe o nome do veículo (Digite 0 para sair):");
             string veiculo = Console.ReadLine();
             if(string.IsNullOrWhiteSpace(veiculo))
             {
                 Console.WriteLine("O campo não pode ser vazio");
                 Console.ReadKey();
                 Veiculos();
+            }
+            
+            if(veiculo == "0")
+            {
+                Menu.Mostrar();
+                return;
             }
 
             Console.Write("Informe a placa do veículo:");
@@ -29,19 +36,26 @@ namespace Estacionamento
                 Veiculos();
             }
 
+            placa = placa.ToUpper();
+
             veiculos.Add($"{veiculo} - {placa}");
             Arquivo.Salvar(veiculos);
+            Log.Registrar($"O veículo {veiculo} com a placa {placa} foi cadastrado com êxito!");
+
+
 
             Console.WriteLine($"O veículo {veiculo} com a placa {placa} foi cadastrado com êxito!");
             Console.ReadKey();
             Menu.Mostrar();
+
+            
         }
 
         public static void Listar()
         {
             Console.Clear();
 
-            Console.WriteLine("=== LISTA DE VEÍCULOS ===");
+            Console.WriteLine("=== LISTA DE VEÍCULOS === (Digite 0 para sair)");
             Console.WriteLine("----------------------------");
 
             if (veiculos.Count == 0)
@@ -71,40 +85,42 @@ namespace Estacionamento
                 Menu.Mostrar();
             }
 
-            Console.WriteLine("=== VEÍCULOS CADASTRO ===");
+            Console.WriteLine("=== VEÍCULOS CADASTRADOS === (Digite 0 para sair):");
             for(int i = 0; i < veiculos.Count; i++)
             {
                 Console.WriteLine($"{i + 1} - {veiculos[i]}");
             }
 
+
             Console.WriteLine("Digite o número do veículo que deseja remover");
+            
             if(!int.TryParse(Console.ReadLine(),out int opcao) || opcao < 1 || opcao > veiculos.Count)
             {
                 Console.WriteLine("Opção inválida.");
                 Console.ReadKey();
-                Veiculos();
+                
             }
 
             string removido = veiculos[opcao - 1];
             veiculos.RemoveAt(opcao - 1);
             Arquivo.Salvar(veiculos);
+            Log.Registrar($"{removido} removido");
 
             Console.WriteLine("Digite a quantidade de horas estacionado:");
             int horas;
-            if(int.TryParse(Console.ReadLine(), out horas))
+            if(!int.TryParse(Console.ReadLine(), out horas))
             {
                 Console.WriteLine("Digite um número valído");
                 Console.ReadKey();
                 return;
             }
 
-            
-
             Console.WriteLine($"{removido} removido");
             Console.WriteLine($"Valor total: R${horas * 5}");
 
             Console.ReadKey();
             Menu.Mostrar();
-        }
+            
     }
 }
+    }
