@@ -28,9 +28,14 @@ Console.WriteLine("-------------------------------------------------------------
 Console.WriteLine("----------------------------------------------------------------------------------------------------------");
             Console.WriteLine("");
 
-            Console.WriteLine("1 - Cadastrar veiculo");
-            Console.WriteLine("2 - Listar veiculos");
-            Console.WriteLine("3 - Remover veiculo");
+            Console.WriteLine("1 - CADASTRAR VEÍCULOS");
+            Console.WriteLine();
+            Console.WriteLine("2 - LISTAR VEÍCULOS");
+            Console.WriteLine();
+            Console.WriteLine("3 - REMOVER VEÍCULO");
+            Console.WriteLine();
+            Console.WriteLine("4 - HISTORICO DE OPERAÇÕES");
+            Console.WriteLine();
             Console.WriteLine("---------------------");
             
             int opcao;
@@ -47,6 +52,7 @@ Console.WriteLine("-------------------------------------------------------------
                 case 1: Cadastrar.Veiculos();break;
                 case 2: Cadastrar.Listar();break;
                 case 3: Cadastrar.Remover();break;
+                case 4: Cadastrar.HistoricoOperacoes();break;
                 default: Menu.Mostrar();break;
             }
             }

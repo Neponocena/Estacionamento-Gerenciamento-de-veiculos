@@ -94,11 +94,17 @@ namespace Estacionamento
 
             Console.WriteLine("Digite o número do veículo que deseja remover");
             
-            if(!int.TryParse(Console.ReadLine(),out int opcao) || opcao < 1 || opcao > veiculos.Count)
+            int opcao;
+            if(!int.TryParse(Console.ReadLine(),out opcao))
             {
-                Console.WriteLine("Opção inválida.");
-                Console.ReadKey();
-                
+                Console.WriteLine("Digite uma opção valída");
+                return;
+            }
+
+            if(opcao == 0)
+            {
+                Menu.Mostrar();
+                return;
             }
 
             string removido = veiculos[opcao - 1];
@@ -122,5 +128,18 @@ namespace Estacionamento
             Menu.Mostrar();
             
     }
-}
+        public static void HistoricoOperacoes()
+        {
+            Console.Clear();
+
+            Console.WriteLine("=== Historico de operações === (Digite 0 para sair)");
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("---------------------------------");
+            foreach (var linha in File.ReadAllLines("Dados/log.txt"))
+            Console.WriteLine(linha);
+            Console.ReadKey();
+            Menu.Mostrar();
+        }
     }
+        
+}
